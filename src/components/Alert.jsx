@@ -12,8 +12,12 @@ function Alert({ alert }) {
   }, [alert]);
 
   return (
-    <div className={`text-${alert.style}`}>
-      <p>{alert.text}</p>
+    <div
+      className={`text-center bg-${alert.style} bg-opacity-20 rounded p-1 mb-5`}
+    >
+      <p className={`text-lg sm:text-xl capitalize text-${alert.style} `}>
+        {alert.text}
+      </p>
     </div>
   );
 }

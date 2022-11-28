@@ -5,11 +5,18 @@ import Item from "./Item";
 function List() {
   const { list, clearList } = useGlobalContext();
   return (
-    <div>
+    <div className="mt-5">
       {list.map((item) => {
         return <Item key={item.id} item={item} />;
       })}
-      <button onClick={() => clearList()}>Clear Items</button>
+      <div className="text-center">
+        <button
+          onClick={() => clearList()}
+          className="inline-block text-lg sm:text-xl text-red-500 mt-5"
+        >
+          Clear Items
+        </button>
+      </div>
     </div>
   );
 }
