@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const AppContext = createContext();
@@ -55,6 +55,17 @@ export function AppContextProvider({ children }) {
     const newList = list.filter((item) => item.id !== id);
     setList(newList);
   };
+
+  useEffect(() => {
+    let data = JSON.parse(localStorage.getItem("grocery bud"));
+    if (data) {
+      setList(data);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("grocery bud", JSON.stringify(list));
+  }, [list]);
 
   return (
     <AppContext.Provider
